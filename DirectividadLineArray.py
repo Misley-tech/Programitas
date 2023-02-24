@@ -1,7 +1,6 @@
 import cmath
 import numpy as np
 import matplotlib.pyplot as plt
-import cmath
 
 def D_dipolo(c,f,b,resolucion_angular):
     """
