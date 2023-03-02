@@ -47,7 +47,7 @@ def busqueda(t,min,max,cant_celdas,prof_max,ndif):
             secuencia_cm=min*(prof_max/max)*secuencia*100 #se aplica la regla de tres simple para pasar de unidades a cm
             secuencia = pd.Series.tolist(secuencia)  # se castea la variable de un panda series a una lista
             secuencia_cm = pd.Series.tolist(secuencia_cm) # idem
-            salida = 'El valor de ACQF es ' + str(round(S,4)) + ' y la secuencia es '+str(secuencia)+ ', en centimetros es '+str(secuencia_cm)+' y la cantidad de niveles de profundidad es de '+str(niveles)+'.' 
+            salida = f"El valor de ACQF es {str(round(S,4))} y la secuencia es {secuencia}, en centimetros es {secuencia_cm} y la cantidad de niveles de profundidad es de {niveles}."
             return salida
 
 #Ejemplo:
