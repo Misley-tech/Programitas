@@ -1,7 +1,18 @@
 import numpy as np
 class MLP:
-    def __init__(self,num_imputs,num_hidden,num_outputs,weights):
-        self.num_inputs = num_imputs # num_inputs atribute is created 
+    """
+    Multilayer perceptron class
+    """
+    def __init__(self,num_inputs,num_hidden,num_outputs,weights):
+        """
+        Constructor for the MLP, their inputs are
+        Args:
+            num_inputs (int): number of inputs
+            num_hidden (list): number of hidden layers
+            num_outputs (int): number of outputs
+            weights (list of lists) : contains three matrices of weights shown in line 41-51
+        """
+        self.num_inputs = num_inputs # num_inputs atribute is created 
         self.num_hidden = num_hidden # num_hidden atribute is created
         self.num_outputs = num_outputs # num_outputs atribute is created
         self.weights = weights # weights atribute is created
