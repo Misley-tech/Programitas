@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
 class Perceptron:
     def __init__(self, inputs, weights):
