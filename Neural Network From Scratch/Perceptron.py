@@ -1,4 +1,3 @@
-import math as math
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -13,7 +12,7 @@ class Perceptron:
             args:
                 x (array or list): it represents the inputs values weighted and summed (h=x*W)
         """
-        return 1/(1+math.exp(-x))
+        return 1/(1+np.exp(-x))
 
     def ReLU(self,x):
         """
@@ -48,7 +47,7 @@ class Perceptron:
             args:
                 x (array or list): it represents the inputs values weighted and summed (h=x*W)
         """
-        exp = math.exp
+        exp = np.exp
         return (exp(x)-exp(-x))/(exp(x)+exp(-x))
 
     def GELU(self,x):
@@ -57,7 +56,7 @@ class Perceptron:
             args:
                 x (array or list): it represents the inputs values weighted and summed (h=x*W)
         """
-        return (0.5*x)*(1+math.erf(x/(2**(0.5))))
+        return (0.5*x)*(1+np.erf(x/(2**(0.5))))
 
     def softplus(self,x):
         """
@@ -65,7 +64,7 @@ class Perceptron:
             args:
                 x (array or list): it represents the inputs values weighted and summed (h=x*W)
         """
-        return math.log(1+math.exp(x))
+        return np.log(1+np.exp(x))
 
     def ELU(self,x,alpha):
         """
@@ -76,7 +75,7 @@ class Perceptron:
         if x>0: 
             return x
         else:
-            return alpha*(math.exp(x)-1)
+            return alpha*(np.exp(x)-1)
 
     def SELU(self,x):
         """
@@ -89,7 +88,7 @@ class Perceptron:
         if x>0:
             return lambda_*x
         else:
-            return lambda_*alpha*(math.exp(x)-1)
+            return lambda_*alpha*(np.exp(x)-1)
 
     def LeakyReLU(self,x):
         """
@@ -119,7 +118,7 @@ class Perceptron:
             args:
                 x (array or list): it represents the inputs values weighted and summed (h=x*W)
         """
-        return x/(1+math.exp(-x))
+        return x/(1+np.exp(-x))
 
     def Gaussian(self,x):
         """
@@ -127,7 +126,7 @@ class Perceptron:
             args:
                 x (array or list): it represents the inputs values weighted and summed (h=x*W)
         """
-        return math.exp((-1)*(x**2))
+        return np.exp((-1)*(x**2))
 
     def activation_function(self,inputs,weights,activation_function,alpha):
         """
