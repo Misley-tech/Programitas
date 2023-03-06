@@ -21,3 +21,4 @@ if __name__ == "__main__":
     ]
     pdfeditor = PdfEditor(pdfs)
     pdfeditor.Merge(pdfs)
+
