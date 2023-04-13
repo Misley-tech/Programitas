@@ -1,6 +1,7 @@
 import cmath
 import numpy as np
 import matplotlib.pyplot as plt
+import cmath
 
 def D_dipolo(c,f,b,resolucion_angular):
     """
@@ -146,15 +147,25 @@ def respuesta_presion(c,f,rho0,U,r,theta,directivity_function):
     p = (2/r)*A*cmath.exp(0,-1*k*r)*directivity_function
     return theta,p
 
-c=1000
+c=343
 f=1000
-d=c/f
-resolucion_angular=0.001
-N=4
+# d=c/f
+b = c/f
+resolucion_angular=0.01
+N=10
 alfa=60
-An = [1,1,1,1]
+An = [1,2,1,2]
 
-theta,directivity_function=D_beamforming(c,f,d,resolucion_angular,N,alfa)
+x = np.linspace(0,10,100)
+x = np.delete(x,0)
 
-plt.polar(theta,directivity_function)
-plt.show()
+for i in range(len(x)):
+    fig = plt.figure(figsize=(5, 5))
+    ax = fig.add_subplot(111, projection='polar')
+    theta,directivity_function=D_beamforming_LeastMeanSquares(c,f,b*x[i],resolucion_angular,N,alfa,An)
+    ax.plot(theta, directivity_function, label=f'{round(x[i],2)}$\lambda$')
+    plt.title(r'Directividad de un $beamforming$ LMS ($N=10$,$\alpha=60^{\circ}$,$A_{n} = [1,2,1,2]$)', fontsize=12)
+    ax.set_xticklabels(['0°','45°','90°','135°','180°','225°','270°','315°'],fontsize=15)
+    legend = ax.legend(loc='upper right', shadow=True, fontsize='xx-large')
+    plt.savefig(f'C:/Users/Asus/Desktop/programitas/SimuladorLineArray/GIFs/IMG_beamforming_lms/{i}.png')
+    ax.legend([])
