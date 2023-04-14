@@ -1,16 +1,5 @@
 from operator import truediv
 
-# n=20
-# valores=[]
-# for i in range(n):
-#     valores.append(list(DTB.DecimalToBase(i)))
-
-# l=[5,5,5]
-
-# Q1=[]
-# for i in range(n):
-#     Q1.append(list(map(truediv,valores[i],l)))
-
 def DecimalToBase(n,p):
     if n == 0:
         return [0,0,0]
