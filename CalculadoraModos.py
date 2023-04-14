@@ -1,5 +1,4 @@
 from operator import truediv
-import DecimalToBase as DTB
 
 # n=20
 # valores=[]
