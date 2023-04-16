@@ -68,4 +68,25 @@ e2=0.3
 d=0.1
 material='no sonoro'
 sup_divisoria=8
-print(SavioliDoble(densidad1,densidad2,e1,e2,d,f,material,sup_divisoria))
+# print(SavioliDoble(densidad1,densidad2,e1,e2,d,f,material,sup_divisoria))
+savioli = SavioliDoble(densidad1,densidad2,e1,e2,d,f,material,sup_divisoria)
+
+soundflow = [79,87,95,110,123,145,170,195]
+TL_necesario = [37,43,49,55,61,67,73,79]
+
+
+plt.semilogx(f,savioli)
+plt.semilogx(f,soundflow,'b:')
+plt.semilogx(f,TL_necesario,'r--')
+
+plt.xticks([31.5,63,125,250,500,1000,2000,4000], ['31.5','63','125','250','500','1000','2000','4000'],fontsize=15)
+plt.yticks(fontsize=15)
+
+plt.title('Comparacion de TL segun el método de Savioli',fontsize=20)
+plt.xlabel('Frecuencia $[Hz]$',fontsize=20)
+plt.ylabel('Transmission Loss $[dB]$',fontsize=20)
+
+plt.grid()
+plt.legend(['Savioli','SoundFlow','TL_necesario'],loc='upper left',fontsize='x-large')
+
+plt.show()
