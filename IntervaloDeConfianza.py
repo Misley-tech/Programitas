@@ -48,7 +48,7 @@ def IProporciones(data,nivel):
     X_prom = np.mean(data)
     n = len(data)
     alfa=1-nivel
-    z_alfa2 = norm.ppf(alfa/2)    
+    z_alfa2 = -norm.ppf(alfa/2)    
     error = z_alfa2*((X_prom*(1-X_prom))**0.5/(n**0.5))
     minimo = X_prom-error
     maximo = X_prom+error
